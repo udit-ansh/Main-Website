@@ -13,6 +13,23 @@ body {
     color: white;
 }
 
+/* Smooth fade in and fade out transitions */
+
+body {
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+/* fade in */
+body.fade-in {
+    opacity: 1;
+}
+
+/* fade out */
+body.fade-out {
+    opacity: 0;
+}
+
 /* ==========================================================
    ALWAYS SHOW BACKGROUND VIDEO
 ========================================================== */
