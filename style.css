@@ -1,38 +1,297 @@
-/* Version B Clean CSS */
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:"Zen Kaku Gothic New",sans-serif;color:#fff;}
+/* ===============================
+   RESET
+================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-#bg-video{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-2;}
-.overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(255,255,255,0.20);
-backdrop-filter:blur(3px);z-index:-1;}
+:root{
+  --nav-gap: 40px;
+  --nav-size: 17px;
+  --nav-weight: 300;
+  --white: #ffffff;
+  --sakura-pink: #f4b9d9;
+}
 
-header{width:100%;position:fixed;top:0;padding:18px 50px;z-index:10;
-background:rgba(255,255,255,0.45);backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(200,200,200,0.4);}
-.navbar{display:flex;justify-content:space-between;align-items:center;}
-.logo{font-family:"Shippori Mincho",serif;font-size:32px;color:#fff;
-text-shadow:0 0 20px rgba(0,0,0,0.5),0 0 35px rgba(0,0,0,0.6);}
-.nav-links{display:flex;gap:30px;list-style:none;}
-.nav-links a{text-decoration:none;font-size:20px;color:#fff;font-weight:600;
-text-shadow:0 0 20px rgba(0,0,0,0.4),0 0 30px rgba(0,0,0,0.6);}
+/* ===============================
+   BASE
+================================= */
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--white);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-.transparent-section{width:80%;margin:150px auto;background:rgba(255,255,255,0.30);
-padding:55px;border-radius:25px;backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,0.35);box-shadow:0 0 30px rgba(255,255,255,0.5),
-0 0 60px rgba(255,255,255,0.35);}
+  /* page fade-in */
+  opacity: 0;
+  animation: pageFadeIn 0.6s ease forwards;
+}
 
-.section-title{font-size:36px;text-align:center;font-family:"Shippori Mincho",serif;
-color:#f4b9d9;margin-bottom:25px;text-shadow:0 0 18px rgba(255,255,255,1),
-0 0 24px rgba(255,255,255,0.8);}
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
-.home-text,.transparent-section p{color:#fff;font-size:20px;text-align:center;
-text-shadow:0 0 18px rgba(0,0,0,0.5),0 0 30px rgba(0,0,0,0.6);}
+/* fade-out class used by script.js */
+.fade-out {
+  opacity: 0 !important;
+  transition: opacity 0.45s ease;
+}
 
-.about-container{display:flex;justify-content:center;gap:35px;flex-wrap:wrap;}
+/* ===============================
+   BACKGROUND VIDEO + OVERLAY
+================================= */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+}
 
-.about-card{width:28%;min-width:260px;padding:25px;border-radius:18px;
-background:rgba(255,255,255,0.20);backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,0.35);text-align:center;}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(1px); /* less blur for background */
+  z-index: -1;
+}
 
-.about-card h3,.about-card p{color:#fff;text-shadow:0 0 15px rgba(0,0,0,0.6),
-0 0 25px rgba(0,0,0,0.5);}
+/* ===============================
+   NAVBAR — EXACT MATCH
+================================= */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 16px 50px;
+  z-index: 20;
+
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
+/* container nav layout */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* logo text (Shippori Mincho) */
+.logo {
+  font-family: "Shippori Mincho", serif;
+  font-size: 28px;      /* slightly smaller like screenshot */
+  font-weight: 600;
+  color: var(--white);
+  text-shadow: none;
+}
+
+/* nav links container */
+.nav-links {
+  display: flex;
+  gap: var(--nav-gap);    /* EXACT spacing */
+  list-style: none;
+  align-items: center;
+}
+
+/* nav link style — EXACT screenshot match */
+.nav-links a {
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-size: var(--nav-size);
+  font-weight: var(--nav-weight);
+  letter-spacing: 0.4px;
+  color: var(--white);
+  text-shadow: none;     /* NO glow/shadow */
+  transition: opacity 0.18s ease;
+  display: inline-block;
+  padding: 6px 0;
+}
+
+.nav-links a:hover {
+  opacity: 0.55;
+}
+
+/* ===============================
+   GLASS CONTENT SECTIONS
+================================= */
+.transparent-section {
+  width: 80%;
+  margin: 170px auto;           /* spacing from top/header */
+  background: rgba(255,255,255,0.32);
+  padding: 60px;                /* roomy padding */
+  border-radius: 25px;
+  backdrop-filter: blur(10px);  /* less blur for tile */
+  border: 1px solid rgba(255,255,255,0.35);
+
+  /* subtle soft glow */
+  box-shadow:
+    0 0 32px rgba(255,255,255,0.38),
+    0 0 55px rgba(255,255,255,0.25);
+
+  /* entrance */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: sectionIn 0.75s ease forwards 0.12s;
+}
+
+@keyframes sectionIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* section title and exact spacing to next text */
+.section-title {
+  font-family: "Shippori Mincho", serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--sakura-pink);
+  text-align: center;
+  margin-bottom: 22px;            /* EXACT spacing = 22px */
+  text-shadow:
+    0 0 18px rgba(255,255,255,0.9),
+    0 0 22px rgba(255,255,255,0.85);
+}
+
+/* paragraph text under title */
+.home-text,
+.transparent-section p {
+  font-size: 20px;
+  color: var(--white);
+  text-align: center;
+  letter-spacing: 0.3px;
+  text-shadow:
+    0 0 12px rgba(0,0,0,0.35),
+    0 0 18px rgba(0,0,0,0.3);
+}
+
+/* ===============================
+   CARDS (education/skills etc.)
+   less blur + spacing + hover + animation
+================================= */
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  gap: 45px;              /* more breathing room */
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* card look */
+.about-card {
+  width: 28%;
+  min-width: 260px;
+  padding: 30px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.28);  /* slightly more solid */
+  backdrop-filter: blur(8px);           /* reduced blur */
+  border: 1px solid rgba(255,255,255,0.35);
+
+  text-align: center;
+  box-shadow:
+    0 0 25px rgba(255,255,255,0.35),
+    0 0 45px rgba(255,255,255,0.25);
+
+  /* entry animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardIn 0.85s ease forwards;
+}
+
+/* stagger animations so cards appear sequentially */
+.about-card:nth-child(1){ animation-delay: 0.25s; }
+.about-card:nth-child(2){ animation-delay: 0.40s; }
+.about-card:nth-child(3){ animation-delay: 0.55s; }
+
+@keyframes cardIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* hover lift */
+.about-card:hover {
+  transform: translateY(-10px);
+  transition: transform 0.32s cubic-bezier(.2,.9,.2,1);
+  box-shadow:
+    0 0 35px rgba(255,255,255,0.45),
+    0 0 60px rgba(255,255,255,0.3);
+}
+
+.about-card h3,
+.about-card p {
+  color: var(--white);
+  text-shadow:
+    0 0 10px rgba(0,0,0,0.45),
+    0 0 20px rgba(0,0,0,0.4);
+}
+
+/* ===============================
+   PROJECT FLIP CARDS (kept simple)
+================================= */
+.project-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flip-card {
+  width: 240px;
+  height: 280px;
+  perspective: 1000px;
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-inner { transform: rotateY(180deg); }
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+.flip-back { transform: rotateY(180deg); }
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 1000px) {
+  .transparent-section { width: 90%; padding: 48px; margin: 140px auto; }
+  .about-card { width: 40%; }
+  .nav-links { gap: 28px; }
+}
+
+@media (max-width: 700px) {
+  header { padding: 12px 20px; }
+  .logo { font-size: 24px; }
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 15px; }
+  .about-card { width: 86%; margin: 10px auto; }
+  .transparent-section { margin: 110px auto; padding: 32px; }
+}
