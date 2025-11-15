@@ -1,28 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Force initial opacity to 0 (hidden)
-    document.body.style.opacity = 0;
+    const body = document.body;
+    body.style.opacity = 0;
 
-    // Ensure page fades in AFTER background video loads
     const video = document.querySelector("video");
+
+    // Fade in after video loads OR after 200ms if video is slow
+    let videoLoaded = false;
 
     if (video) {
         video.addEventListener("loadeddata", () => {
-            document.body.classList.add("page-loaded");
+            videoLoaded = true;
+            body.classList.add("page-loaded");
         });
-    } else {
-        // No video on this page → fade in immediately
-        document.body.classList.add("page-loaded");
     }
 
-    // Handle page transition fade-out
+    setTimeout(() => {
+        if (!videoLoaded) body.classList.add("page-loaded");
+    }, 200);
+
+    // Fade-out transition for navigation links
     const links = document.querySelectorAll("a.transition-link");
-
     links.forEach(link => {
-        link.addEventListener("click", (e) => {
+        link.addEventListener("click", e => {
             e.preventDefault();
-            const target = e.target.href;
+            const target = link.href;
 
-            document.body.classList.remove("page-loaded");
+            body.classList.remove("page-loaded");
 
             setTimeout(() => {
                 window.location.href = target;
