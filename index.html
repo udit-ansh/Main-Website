@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | Uditansh Gupta</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home | Uditansh Gupta</title>
 
-    <link rel="stylesheet" href="style.css" />
+  <!-- styles -->
+  <link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <video autoplay muted loop id="bg-video">
-        <source src="video.mp4" type="video/mp4" />
-    </video>
+  <!-- Background video (persistent in SPA) -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
 
-    <div class="overlay"></div>
+  <!-- Header / Nav -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Uditansh Gupta</div>
 
-    <header>
-        <div class="navbar">
-            <div class="logo">Uditansh Gupta</div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="transition-link">Home</a></li>
+        <li><a href="education.html" class="transition-link">Education</a></li>
+        <li><a href="interests.html" class="transition-link">Interests</a></li>
+        <li><a href="skills.html" class="transition-link">Skills</a></li>
+        <li><a href="projects.html" class="transition-link">Projects</a></li>
+        <li><a href="contact.html" class="transition-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-            <ul class="nav-links">
-                <li><a href="index.html" class="transition-link">Home</a></li>
-                <li><a href="education.html" class="transition-link">Education</a></li>
-                <li><a href="interests.html" class="transition-link">Interests</a></li>
-                <li><a href="skills.html" class="transition-link">Skills</a></li>
-                <li><a href="projects.html" class="transition-link">Projects</a></li>
-                <li><a href="contact.html" class="transition-link">Contact</a></li>
-            </ul>
-        </div>
-    </header>
+  <!-- Main content container: JS will replace innerHTML of #main-content -->
+  <main id="main-content" class="transparent-section" role="main" aria-live="polite">
+    <!-- Initial / Home content -->
+    <h2 class="section-title">Welcome</h2>
+    <p class="home-text">Write your introduction here — your story, ambition, goals.</p>
+  </main>
 
-    <section class="transparent-section">
-        <h2 class="section-title">Welcome</h2>
-        <p class="home-text">Hi!! I am Uditansh Gupta currently in First Year of BS-MS(Research) Programm at IISER Kolkata . I am currently exploring the vast landscape of science and acquiring skills and trying to learn something new everyday.</p>
-    </section>
-
-    <script src="transition.js"></script>
+  <!-- SPA transition + loader script -->
+  <script src="transition.js"></script>
 </body>
 </html>
