@@ -1,0 +1,38 @@
+/* Version B Clean CSS */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Zen Kaku Gothic New",sans-serif;color:#fff;}
+
+#bg-video{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-2;}
+.overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(255,255,255,0.20);
+backdrop-filter:blur(3px);z-index:-1;}
+
+header{width:100%;position:fixed;top:0;padding:18px 50px;z-index:10;
+background:rgba(255,255,255,0.45);backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(200,200,200,0.4);}
+.navbar{display:flex;justify-content:space-between;align-items:center;}
+.logo{font-family:"Shippori Mincho",serif;font-size:32px;color:#fff;
+text-shadow:0 0 20px rgba(0,0,0,0.5),0 0 35px rgba(0,0,0,0.6);}
+.nav-links{display:flex;gap:30px;list-style:none;}
+.nav-links a{text-decoration:none;font-size:20px;color:#fff;font-weight:600;
+text-shadow:0 0 20px rgba(0,0,0,0.4),0 0 30px rgba(0,0,0,0.6);}
+
+.transparent-section{width:80%;margin:150px auto;background:rgba(255,255,255,0.30);
+padding:55px;border-radius:25px;backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,0.35);box-shadow:0 0 30px rgba(255,255,255,0.5),
+0 0 60px rgba(255,255,255,0.35);}
+
+.section-title{font-size:36px;text-align:center;font-family:"Shippori Mincho",serif;
+color:#f4b9d9;margin-bottom:25px;text-shadow:0 0 18px rgba(255,255,255,1),
+0 0 24px rgba(255,255,255,0.8);}
+
+.home-text,.transparent-section p{color:#fff;font-size:20px;text-align:center;
+text-shadow:0 0 18px rgba(0,0,0,0.5),0 0 30px rgba(0,0,0,0.6);}
+
+.about-container{display:flex;justify-content:center;gap:35px;flex-wrap:wrap;}
+
+.about-card{width:28%;min-width:260px;padding:25px;border-radius:18px;
+background:rgba(255,255,255,0.20);backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.35);text-align:center;}
+
+.about-card h3,.about-card p{color:#fff;text-shadow:0 0 15px rgba(0,0,0,0.6),
+0 0 25px rgba(0,0,0,0.5);}
