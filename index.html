@@ -11,6 +11,14 @@
   <!-- fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
 </head>
+<script>
+document.body.classList.add("video-loading");
+
+document.getElementById("bg-video").addEventListener("loadeddata", () => {
+    document.body.classList.remove("video-loading");
+});
+</script>
+
 <body>
 
   <!-- Background video (persistent in SPA) -->
