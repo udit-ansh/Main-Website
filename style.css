@@ -157,13 +157,17 @@ header::after {
 }
 
 .about-card {
-    width: 290px;
+    width: 300px;
     padding: 25px;
     background: rgba(255, 255, 255, 0.22);
     backdrop-filter: blur(12px);
     border-radius: 20px;
     text-align: center;
+    overflow-wrap: break-word;   /* prevents long text from escaping */
+    word-wrap: break-word;
+    white-space: normal;         /* ensures wrapping */
 }
+
 
 .about-card h3 {
     font-size: 20px;
