@@ -1,3 +1,7 @@
+html, body {
+    background: #f5d9eb; /* soft sakura-pink background */
+}
+
 /* -------------------------------------------------
    PAGE TRANSITION FIX — NO WHITE SCREEN EVER
 --------------------------------------------------- */
