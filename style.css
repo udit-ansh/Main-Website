@@ -1,74 +1,55 @@
-html, body {
-    background: #f5d9eb; /* soft sakura-pink background */
-}
-
 /* -------------------------------------------------
-   PAGE TRANSITION FIX — NO WHITE SCREEN EVER
+   TRANSITION + NO-FLASH SAFETY (top-most)
 --------------------------------------------------- */
 html, body {
-    background-color: #000;  /* prevents white flash before video loads */
+  background-color: #f5d9eb; /* soft sakura-pink fallback so no black flash */
 }
 
 body {
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
+  opacity: 0; /* start hidden */
+  transition: opacity 0.35s ease-in-out;
 }
 
+/* When JS is ready/once video loaded we add this class */
 body.page-loaded {
-    opacity: 1;
+  opacity: 1;
 }
 
+/* Keep this for compatibility */
+.fade-out {
+  opacity: 0 !important;
+}
 
-/* -------------------------------------------------
-   (Below this line, keep the rest of your CSS same)
---------------------------------------------------- */
+/* =================================================
+   Rest of your site CSS (full theme: navbar, cards)
+================================================= */
 
-/* ===============================
-   RESET
-================================= */
+:root {
+  --white: #ffffff;
+  --soft-white: #fefefe;
+  --nav-size: 17px;
+  --nav-weight: 300;
+  --sakura-title: #f4b9d9;
+  --sakura-logo: #d36aa5;
+}
+
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root{
-  --nav-gap: 40px;
-  --nav-size: 17px;
-  --nav-weight: 300;
-  --white: #ffffff;
-  --sakura-pink: #f4b9d9;
-}
-
-/* ===============================
-   BASE
-================================= */
+/* Base */
 body {
   font-family: "Inter", sans-serif;
   color: var(--white);
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* page fade-in */
-  opacity: 0;
-  animation: pageFadeIn 0.6s ease forwards;
 }
 
-@keyframes pageFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* fade-out class used by script.js */
-.fade-out {
-  opacity: 0 !important;
-  transition: opacity 0.45s ease;
-}
-
-/* ===============================
-   BACKGROUND VIDEO + OVERLAY
-================================= */
+/* Background video */
 #bg-video {
   position: fixed;
   top: 0;
@@ -85,238 +66,170 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(1px); /* less blur for background */
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(1px);
   z-index: -1;
 }
 
-/* ===============================
-   NAVBAR — EXACT MATCH
-================================= */
+/* Header / Nav */
 header {
   width: 100%;
   position: fixed;
   top: 0;
-  left: 0;
   padding: 16px 50px;
   z-index: 20;
-
   background: rgba(255,255,255,0.25);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255,255,255,0.18);
 }
 
-/* container nav layout */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* logo text (Shippori Mincho) */
 .logo {
-  font-family: "Shippori Mincho", serif;
-  font-size: 28px;      /* slightly smaller like screenshot */
-  font-weight: 600;
-  color: var(--white);
+  font-family: "Inter", sans-serif; /* changed to Inter to match nav */
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--sakura-logo);
+  letter-spacing: 0.3px;
   text-shadow: none;
 }
 
-/* nav links container */
 .nav-links {
   display: flex;
-  gap: var(--nav-gap);    /* EXACT spacing */
+  gap: 40px;
   list-style: none;
-  align-items: center;
 }
 
-/* nav link style — EXACT screenshot match */
 .nav-links a {
   text-decoration: none;
   font-family: "Inter", sans-serif;
   font-size: var(--nav-size);
   font-weight: var(--nav-weight);
+  color: var(--soft-white);
   letter-spacing: 0.4px;
-  color: var(--white);
-  text-shadow: none;     /* NO glow/shadow */
-  transition: opacity 0.18s ease;
-  display: inline-block;
-  padding: 6px 0;
+  transition: opacity 0.2s ease;
 }
 
-.nav-links a:hover {
-  opacity: 0.55;
-}
+.nav-links a:hover { opacity: 0.55; }
 
-/* ===============================
-   GLASS CONTENT SECTIONS
-================================= */
+/* Main transparent section (container used by SPA) */
 .transparent-section {
   width: 80%;
-  margin: 170px auto;           /* spacing from top/header */
-  background: rgba(255,255,255,0.32);
-  padding: 60px;                /* roomy padding */
-  border-radius: 25px;
-  backdrop-filter: blur(10px);  /* less blur for tile */
+  margin: 170px auto;
+  padding: 60px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 24px;
   border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(255,255,255,0.28);
 
-  /* subtle soft glow */
-  box-shadow:
-    0 0 32px rgba(255,255,255,0.38),
-    0 0 55px rgba(255,255,255,0.25);
-
-  /* entrance */
   opacity: 0;
-  transform: translateY(20px);
-  animation: sectionIn 0.75s ease forwards 0.12s;
+  transform: translateY(18px);
+  animation: contentIn 0.6s ease forwards;
 }
 
-@keyframes sectionIn {
+@keyframes contentIn {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* section title and exact spacing to next text */
+/* Section titles */
 .section-title {
   font-family: "Shippori Mincho", serif;
   font-size: 36px;
   font-weight: 500;
-  color: var(--sakura-pink);
+  color: var(--sakura-title);
   text-align: center;
-  margin-bottom: 22px;            /* EXACT spacing = 22px */
-  text-shadow:
-    0 0 18px rgba(255,255,255,0.9),
-    0 0 22px rgba(255,255,255,0.85);
+  margin-bottom: 32px;
 }
 
-/* paragraph text under title */
+/* Body/subtitle text */
 .home-text,
 .transparent-section p {
-  font-size: 20px;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  font-weight: 300;
   color: var(--white);
   text-align: center;
-  letter-spacing: 0.3px;
-  text-shadow:
-    0 0 12px rgba(0,0,0,0.35),
-    0 0 18px rgba(0,0,0,0.3);
+  letter-spacing: 0.35px;
 }
 
-/* ===============================
-   CARDS (education/skills etc.)
-   less blur + spacing + hover + animation
-================================= */
-
+/* Cards grid */
 .about-container {
   display: flex;
   justify-content: center;
-  gap: 45px;              /* more breathing room */
+  gap: 45px;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
-/* card look */
 .about-card {
   width: 28%;
   min-width: 260px;
   padding: 30px;
   border-radius: 20px;
-
-  background: rgba(255,255,255,0.28);  /* slightly more solid */
-  backdrop-filter: blur(8px);           /* reduced blur */
+  background: rgba(255,255,255,0.28);
   border: 1px solid rgba(255,255,255,0.35);
-
+  backdrop-filter: blur(8px);
   text-align: center;
-  box-shadow:
-    0 0 25px rgba(255,255,255,0.35),
-    0 0 45px rgba(255,255,255,0.25);
-
-  /* entry animation */
+  box-shadow: 0 0 25px rgba(255,255,255,0.3), 0 0 45px rgba(255,255,255,0.25);
   opacity: 0;
-  transform: translateY(20px);
-  animation: cardIn 0.85s ease forwards;
+  transform: translateY(18px);
+  animation: cardIn 0.75s ease forwards;
 }
-
-/* stagger animations so cards appear sequentially */
-.about-card:nth-child(1){ animation-delay: 0.25s; }
-.about-card:nth-child(2){ animation-delay: 0.40s; }
-.about-card:nth-child(3){ animation-delay: 0.55s; }
+.about-card:nth-child(1) { animation-delay: 0.25s; }
+.about-card:nth-child(2) { animation-delay: 0.40s; }
+.about-card:nth-child(3) { animation-delay: 0.55s; }
 
 @keyframes cardIn {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* hover lift */
 .about-card:hover {
   transform: translateY(-10px);
-  transition: transform 0.32s cubic-bezier(.2,.9,.2,1);
-  box-shadow:
-    0 0 35px rgba(255,255,255,0.45),
-    0 0 60px rgba(255,255,255,0.3);
+  transition: transform 0.3s cubic-bezier(.2,.9,.2,1);
+  box-shadow: 0 0 42px rgba(255,255,255,0.45), 0 0 60px rgba(255,255,255,0.28);
 }
 
-.about-card h3,
-.about-card p {
+.about-card h3, .about-card p {
+  font-family: "Inter", sans-serif;
   color: var(--white);
-  text-shadow:
-    0 0 10px rgba(0,0,0,0.45),
-    0 0 20px rgba(0,0,0,0.4);
 }
 
-/* ===============================
-   PROJECT FLIP CARDS (kept simple)
-================================= */
-.project-grid {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.flip-card {
-  width: 240px;
-  height: 280px;
-  perspective: 1000px;
-}
-
-.flip-inner {
-  width: 100%;
-  height: 100%;
-  transition: transform 1s;
-  transform-style: preserve-3d;
-}
-
+/* Simple project flip-card styling */
+.project-grid { display:flex; gap:30px; flex-wrap:wrap; justify-content:center; margin-top:28px; }
+.flip-card { width:240px; height:280px; perspective:1000px; }
+.flip-inner { width:100%; height:100%; transition: transform 1s; transform-style: preserve-3d; }
 .flip-card:hover .flip-inner { transform: rotateY(180deg); }
-
-.flip-front,
-.flip-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.25);
-  border: 1px solid rgba(255,255,255,0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
+.flip-front, .flip-back {
+  position:absolute; width:100%; height:100%; backface-visibility:hidden;
+  border-radius:20px; background: rgba(255,255,255,0.25); border:1px solid rgba(255,255,255,0.35);
+  display:flex; align-items:center; justify-content:center; color:var(--white);
 }
-
 .flip-back { transform: rotateY(180deg); }
 
-/* ===============================
-   RESPONSIVE
-================================= */
+/* Responsive */
 @media (max-width: 1000px) {
-  .transparent-section { width: 90%; padding: 48px; margin: 140px auto; }
-  .about-card { width: 40%; }
+  .transparent-section { width: 90%; padding: 48px; margin: 150px auto; }
+  .about-card { width: 42%; }
   .nav-links { gap: 28px; }
 }
-
-@media (max-width: 700px) {
-  header { padding: 12px 20px; }
-  .logo { font-size: 24px; }
-  .nav-links { gap: 16px; }
+@media (max-width: 750px) {
+  header { padding: 12px 24px; }
+  .logo { font-size: 28px; }
+  .nav-links { gap: 18px; }
   .nav-links a { font-size: 15px; }
-  .about-card { width: 86%; margin: 10px auto; }
-  .transparent-section { margin: 110px auto; padding: 32px; }
+  .transparent-section { width: 92%; padding: 32px; margin: 120px auto; }
+  .about-card { width: 85%; padding: 26px; }
+}
+@media (max-width: 480px) {
+  header { padding: 10px 18px; }
+  .logo { font-size: 24px; }
+  .nav-links { gap: 12px; }
+  .nav-links a { font-size: 14px; }
+  .transparent-section { width: 94%; padding: 28px; margin: 110px auto; }
+  .section-title { font-size: 26px; margin-bottom: 26px; }
 }
