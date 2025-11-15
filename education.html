@@ -1,48 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Education | Uditansh Gupta</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
-<body class="page-loaded">
+<body>
 
-<header>
-    <nav class="navbar">
-        <div class="logo">Uditansh Gupta</div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="transition-link">Home</a></li>
-            <li><a href="education.html" class="transition-link">Education</a></li>
-            <li><a href="interests.html" class="transition-link">Interests</a></li>
-            <li><a href="skills.html" class="transition-link">Skills</a></li>
-            <li><a href="projects.html" class="transition-link">Projects</a></li>
-            <li><a href="contact.html" class="transition-link">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+    <video autoplay muted loop id="bg-video">
+        <source src="video.mp4" type="video/mp4" />
+    </video>
 
-<section class="transparent-section">
-    <h2 class="section-title">Education</h2>
+    <div class="overlay"></div>
 
-    <div class="about-container">
-        <div class="about-card">
-            <h3>IISER Kolkata</h3>
-            <p>BS-MS in Mathematics (2025–2030)</p>
+    <header>
+        <div class="navbar">
+            <div class="logo">Uditansh Gupta</div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="transition-link">Home</a></li>
+                <li><a href="education.html" class="transition-link">Education</a></li>
+                <li><a href="interests.html" class="transition-link">Interests</a></li>
+                <li><a href="skills.html" class="transition-link">Skills</a></li>
+                <li><a href="projects.html" class="transition-link">Projects</a></li>
+                <li><a href="contact.html" class="transition-link">Contact</a></li>
+            </ul>
         </div>
+    </header>
 
-        <div class="about-card">
-            <h3>Class 12</h3>
-            <p>92% (CBSE)</p>
-        </div>
+    <section class="transparent-section">
+        <h2 class="section-title">Education</h2>
 
-        <div class="about-card">
-            <h3>Class 10</h3>
-            <p>94.2% (CBSE)</p>
+        <div class="about-container">
+
+            <div class="about-card">
+                <h3>IISER Kolkata</h3>
+                <p>BS-MS Mathematics (2025–2030)</p>
+            </div>
+
+            <div class="about-card">
+                <h3>Class 12</h3>
+                <p>PCM — 92% (CBSE)</p>
+            </div>
+
+            <div class="about-card">
+                <h3>Class 10</h3>
+                <p>94.2% (CBSE)</p>
+            </div>
+
         </div>
-    </div>
-</section>
+    </section>
+
+    <script src="transition.js"></script>
 
 </body>
 </html>
