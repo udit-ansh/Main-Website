@@ -1,51 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Skills — Uditansh Gupta</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills | Uditansh Gupta</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <video id="bg-video" autoplay loop muted playsinline>
-    <source src="video.mp4" type="video/mp4">
-  </video>
-  <div class="overlay"></div>
+    <video autoplay muted loop id="bg-video">
+        <source src="background.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay"></div>
 
-  <header>
-    <nav class="navbar">
-      <div class="logo">Uditansh Gupta</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="interests.html">Interests</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <div class="navbar">
+            <div class="logo">Uditansh Gupta</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="transition-link">Home</a></li>
+                <li><a href="education.html" class="transition-link">Education</a></li>
+                <li><a href="interests.html" class="transition-link">Interests</a></li>
+                <li><a href="skills.html" class="transition-link">Skills</a></li>
+                <li><a href="projects.html" class="transition-link">Projects</a></li>
+                <li><a href="contact.html" class="transition-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
-  <section class="transparent-section">
-    <h2 class="section-title">Skills</h2>
-    <div class="about-container">
-      <div class="about-card">
-        <h3>Programming</h3>
-        <p>Python, Java, JavaScript, HTML/CSS</p>
-      </div>
-      <div class="about-card">
-        <h3>Machine Learning</h3>
-        <p>Scikit-Learn, TensorFlow, Data Analysis</p>
-      </div>
-      <div class="about-card">
-        <h3>Tools</h3>
-        <p>Git, Linux, VS Code, Jupyter</p>
-      </div>
-    </div>
-  </section>
+    <section class="transparent-section">
+        <h2 class="section-title">Skills</h2>
 
-  <script src="script.js"></script>
+        <div class="about-container">
+
+            <div class="about-card">
+                <h3>Programming</h3>
+                <p>Python • Java • HTML/CSS • JavaScript</p>
+            </div>
+
+            <div class="about-card">
+                <h3>Machine Learning</h3>
+                <p>TensorFlow • Scikit-Learn • Data Analysis</p>
+            </div>
+
+            <div class="about-card">
+                <h3>Tools</h3>
+                <p>Git • Linux • VS Code • Jupyter</p>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="transition.js"></script>
 </body>
 </html>
