@@ -1,4 +1,6 @@
-/* GENERAL RESET */
+/* ==========================================================
+   GLOBAL RESET
+========================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +13,9 @@ body {
     color: white;
 }
 
-/* ALWAYS SHOW VIDEO */
+/* ==========================================================
+   ALWAYS SHOW BACKGROUND VIDEO
+========================================================== */
 #bg-video {
     position: fixed;
     top: 0;
@@ -19,28 +23,69 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -2;
+    z-index: -2 !important;
     display: block !important;
 }
 
-/* OVERLAY BLUR */
+/* ==========================================================
+   OVERLAY BLUR (PINK GLOW)
+========================================================== */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 200, 220, 0.15);
     backdrop-filter: blur(6px);
     z-index: -1;
 }
 
-/* NAVIGATION BAR */
+/* HIDE OVERLAY UNTIL VIDEO LOADS (fixes pink bar) */
+body.video-loading .overlay {
+    opacity: 0;
+}
+
+/* ==========================================================
+   🌸 GLASS / MIRROR NAVIGATION BAR (RESTORED)
+========================================================== */
 header {
     width: 100%;
     padding: 20px 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+
+    /* ✨ restored mirror effect */
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+    border-radius: 0 0 14px 14px;
 }
 
+header::after {
+    /* glossy mirror shine */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0.05)
+    );
+    opacity: 0.25;
+    z-index: -1;
+}
+
+/* NAVBAR LAYOUT */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -55,7 +100,7 @@ header {
     color: #ffb1d8;
 }
 
-/* NAVIGATION LINKS */
+/* NAV LINKS */
 .nav-links {
     display: flex;
     gap: 40px;
@@ -66,8 +111,8 @@ header {
     text-decoration: none;
     font-size: 20px;
     font-weight: 400;
-    color: white;
     font-family: "Inter", sans-serif;
+    color: white;
     transition: 0.3s;
 }
 
@@ -75,7 +120,9 @@ header {
     opacity: 0.6;
 }
 
-/* MAIN TILE SECTION */
+/* ==========================================================
+   MAIN TRANSPARENT TILE SECTION
+========================================================== */
 .transparent-section {
     width: 80%;
     margin: 180px auto 0 auto;
@@ -86,6 +133,7 @@ header {
     text-align: center;
 }
 
+/* SECTION HEADINGS */
 .section-title {
     font-size: 43px;
     font-family: "Shippori Mincho", serif;
@@ -100,12 +148,15 @@ header {
     color: white;
 }
 
-/* SKILLS CARDS CONTAINER */
+/* ==========================================================
+   CARDS (SKILLS / EDUCATION / INTERESTS)
+========================================================== */
 .about-container {
     display: flex;
     justify-content: center;
     gap: 40px;
     margin-top: 40px;
+    flex-wrap: wrap;
 }
 
 .about-card {
@@ -118,7 +169,6 @@ header {
 }
 
 .about-card h3 {
-    font-family: "Inter", sans-serif;
     font-size: 20px;
     font-weight: 600;
     color: white;
@@ -127,11 +177,12 @@ header {
 
 .about-card p {
     font-size: 16px;
-    font-family: "Inter", sans-serif;
     color: white;
 }
 
-/* PAGE FADE ANIMATION */
+/* ==========================================================
+   PAGE TRANSITIONS
+========================================================== */
 .fade-out {
     opacity: 0;
     transition: opacity 0.35s ease-in-out;
@@ -142,19 +193,30 @@ header {
     transition: opacity 0.35s ease-in-out;
 }
 
-/* MOBILE FIXES */
+/* Don't show content before video loads */
+body.video-loading .transparent-section {
+    opacity: 0;
+}
+
+/* ==========================================================
+   MOBILE OPTIMIZATION
+========================================================== */
 @media (max-width: 700px) {
     header {
-        padding: 20px;
+        padding: 14px 22px;
     }
 
     .nav-links {
         gap: 15px;
     }
 
+    .nav-links a {
+        font-size: 16px;
+    }
+
     .transparent-section {
-        width: 95%;
-        margin-top: 130px;
-        padding: 35px;
+        width: 92%;
+        margin-top: 140px;
+        padding: 30px;
     }
 }
