@@ -1,37 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Home | Uditansh Gupta</title>
 
-  <!-- styles -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<script>
-document.body.classList.add("video-loading");
-
-document.getElementById("bg-video").addEventListener("loadeddata", () => {
-    document.body.classList.remove("video-loading");
-});
-</script>
 
 <body>
 
-  <!-- Background video (persistent in SPA) -->
+  <!-- Background video -->
   <video id="bg-video" autoplay muted loop playsinline>
     <source src="video.mp4" type="video/mp4">
   </video>
+
   <div class="overlay"></div>
 
-  <!-- Header / Nav -->
   <header>
     <nav class="navbar">
       <div class="logo">Uditansh Gupta</div>
-
       <ul class="nav-links">
         <li><a href="index.html" class="transition-link">Home</a></li>
         <li><a href="education.html" class="transition-link">Education</a></li>
@@ -43,14 +33,20 @@ document.getElementById("bg-video").addEventListener("loadeddata", () => {
     </nav>
   </header>
 
-  <!-- Main content container: JS will replace innerHTML of #main-content -->
-  <main id="main-content" class="transparent-section" role="main" aria-live="polite">
-    <!-- Initial / Home content -->
+  <main id="main-content" class="transparent-section">
     <h2 class="section-title">Welcome</h2>
     <p class="home-text">Write your introduction here — your story, ambition, goals.</p>
   </main>
 
-  <!-- SPA transition + loader script -->
+  <!-- Correct video-loading script -->
+  <script>
+    document.body.classList.add("video-loading");
+    const vid = document.getElementById("bg-video");
+    vid.addEventListener("loadeddata", () => {
+      document.body.classList.remove("video-loading");
+    });
+  </script>
+
   <script src="transition.js"></script>
 </body>
 </html>
