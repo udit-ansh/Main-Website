@@ -2,18 +2,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const links = document.querySelectorAll(".transition-link");
 
     links.forEach(link => {
-        link.addEventListener("click", e => {
+        link.addEventListener("click", function (e) {
             e.preventDefault();
 
-            const href = link.getAttribute("href");
+            const target = this.getAttribute("href");
 
+            // Fade out smoothly
             document.body.classList.add("fade-out");
 
             setTimeout(() => {
-                window.location.href = href;
-            }, 250);
+                window.location.href = target;
+            }, 280); // matches the CSS timing
         });
     });
 
-    document.body.classList.add("fade-in");
+    // Fade in smoothly on every page
+    setTimeout(() => {
+        document.body.classList.add("fade-in");
+    }, 20);
 });
