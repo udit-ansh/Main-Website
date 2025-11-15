@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Education | Uditansh Gupta</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -15,7 +15,6 @@
   <video id="bg-video" autoplay muted loop playsinline>
     <source src="video.mp4" type="video/mp4">
   </video>
-
   <div class="overlay"></div>
 
   <header>
@@ -38,7 +37,7 @@
     <div class="about-container">
       <div class="about-card">
         <h3>IISER Kolkata</h3>
-        <p>BS-MS in Mathematics (2025–2030)</p>
+        <p>BS-MS Mathematics (2025–2030)</p>
       </div>
 
       <div class="about-card">
@@ -55,8 +54,7 @@
 
   <script>
     document.body.classList.add("video-loading");
-    const vid = document.getElementById("bg-video");
-    vid.addEventListener("loadeddata", () => {
+    document.getElementById("bg-video").addEventListener("loadeddata", () => {
       document.body.classList.remove("video-loading");
     });
   </script>
