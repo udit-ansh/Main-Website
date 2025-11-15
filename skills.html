@@ -6,6 +6,13 @@
     <title>Skills | Uditansh Gupta</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<script>
+document.body.classList.add("video-loading");
+
+document.getElementById("bg-video").addEventListener("loadeddata", () => {
+    document.body.classList.remove("video-loading");
+});
+</script>
 
 <body class="page-loaded">
 
