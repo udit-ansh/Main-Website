@@ -90,7 +90,7 @@ header::after {
 
 /* Your name */
 .logo {
-    font-size: 38px;
+    font-size: 45px;
     font-weight: 600;
     font-family: "Shippori Mincho", serif;
     color: #c968b5; /* deep sakura violet */
@@ -131,7 +131,7 @@ header::after {
 
 /* SECTION TITLES */
 .section-title {
-    font-size: 43px;
+    font-size: 35px;
     font-family: "Shippori Mincho", serif;
     font-weight: 600;
     color: #d05787; /* deep sakura pink */
