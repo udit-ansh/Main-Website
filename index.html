@@ -1,33 +1,46 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<title>Home</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home — Uditansh Gupta</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<video autoplay loop muted id="bg-video">
-<source src="video.mp4">
-</video>
-<div class="overlay"></div>
 
-<header>
-<nav class="navbar">
-<h1 class="logo">Your Name</h1>
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="education.html">Education</a></li>
-<li><a href="interests.html">Interests</a></li>
-<li><a href="skills.html">Skills</a></li>
-<li><a href="projects.html">Projects</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
-</header>
+  <!-- Background video (place your file named 'video.mp4' in repo root) -->
+  <video id="bg-video" autoplay loop muted playsinline>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
 
-<section class="transparent-section">
-<h2 class="section-title">Welcome</h2>
-<p class="home-text">Write your introduction here — who you are, what you do, and your goals.</p>
-</section>
+  <!-- Header / Nav -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Uditansh Gupta</div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="interests.html">Interests</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <section class="transparent-section">
+    <h2 class="section-title">Welcome</h2>
+    <p class="home-text">Write your introduction here — who you are, what you do, and your goals.</p>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
