@@ -1,26 +1,32 @@
-// Smooth page transitions with no white flash
+document.addEventListener("DOMContentLoaded", () => {
+    // Force initial opacity to 0 (hidden)
+    document.body.style.opacity = 0;
 
-window.addEventListener("load", () => {
+    // Ensure page fades in AFTER background video loads
+    const video = document.querySelector("video");
 
-    // Fade the page in ONLY after everything has loaded
-    document.body.style.opacity = "1";
+    if (video) {
+        video.addEventListener("loadeddata", () => {
+            document.body.classList.add("page-loaded");
+        });
+    } else {
+        // No video on this page → fade in immediately
+        document.body.classList.add("page-loaded");
+    }
 
-    const links = document.querySelectorAll(".transition-link");
+    // Handle page transition fade-out
+    const links = document.querySelectorAll("a.transition-link");
 
     links.forEach(link => {
-        link.addEventListener("click", e => {
+        link.addEventListener("click", (e) => {
             e.preventDefault();
+            const target = e.target.href;
 
-            const url = link.href;
+            document.body.classList.remove("page-loaded");
 
-            // Start fade-out animation
-            document.body.style.opacity = "0";
-
-            // After animation ends, navigate
             setTimeout(() => {
-                window.location.href = url;
-            }, 300); // matches CSS transition time
+                window.location.href = target;
+            }, 350);
         });
     });
-
 });
