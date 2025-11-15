@@ -111,7 +111,7 @@ header::after {
 
 /* YOUR NAME */
 .logo {
-    font-size: 40px;
+    font-size: 45px;
     font-weight: 600;
     font-family: "Shippori Mincho", serif;
     color: #ffb1d8;
@@ -152,7 +152,7 @@ header::after {
 
 /* SECTION HEADINGS */
 .section-title {
-    font-size: 43px;
+    font-size: 38px;
     font-family: "Shippori Mincho", serif;
     font-weight: 600;
     color: #ff8fb7;
