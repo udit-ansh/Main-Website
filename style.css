@@ -1,3 +1,24 @@
+/* -------------------------------------------------
+   PAGE TRANSITION FIX — NO WHITE SCREEN EVER
+--------------------------------------------------- */
+html, body {
+    background-color: #000;  /* prevents white flash before video loads */
+}
+
+body {
+    opacity: 0;                  /* starts hidden */
+    transition: opacity 0.35s ease-in-out; 
+}
+
+/* This class is kept for JS safety, even if unused */
+.fade-out {
+    opacity: 0 !important;
+}
+
+/* -------------------------------------------------
+   (Below this line, keep the rest of your CSS same)
+--------------------------------------------------- */
+
 /* ===============================
    RESET
 ================================= */
