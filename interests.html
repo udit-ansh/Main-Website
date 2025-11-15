@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Interests | Uditansh Gupta</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -15,7 +15,6 @@
   <video id="bg-video" autoplay muted loop playsinline>
     <source src="video.mp4" type="video/mp4">
   </video>
-
   <div class="overlay"></div>
 
   <header>
@@ -36,14 +35,13 @@
     <h2 class="section-title">Interests</h2>
 
     <div class="about-container">
-
       <div class="about-card">
         <h3>Mathematics</h3>
-        <p>Logic • Analysis • Number Theory</p>
+        <p>Logic • Problem Solving • Proofs</p>
       </div>
 
       <div class="about-card">
-        <h3>Machine Learning</h3>
+        <h3>AI / ML</h3>
         <p>Deep Learning • Data Science</p>
       </div>
 
@@ -51,14 +49,12 @@
         <h3>Japanese</h3>
         <p>Anime • Manga • JLPT Prep</p>
       </div>
-
     </div>
   </section>
 
   <script>
     document.body.classList.add("video-loading");
-    const vid = document.getElementById("bg-video");
-    vid.addEventListener("loadeddata", () => {
+    document.getElementById("bg-video").addEventListener("loadeddata", () => {
       document.body.classList.remove("video-loading");
     });
   </script>
