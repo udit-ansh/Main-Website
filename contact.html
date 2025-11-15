@@ -1,32 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact | Uditansh Gupta</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
-<body class="page-loaded">
+<body>
 
-<header>
-    <nav class="navbar">
-        <div class="logo">Uditansh Gupta</div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="transition-link">Home</a></li>
-            <li><a href="education.html" class="transition-link">Education</a></li>
-            <li><a href="interests.html" class="transition-link">Interests</a></li>
-            <li><a href="skills.html" class="transition-link">Skills</a></li>
-            <li><a href="projects.html" class="transition-link">Projects</a></li>
-            <li><a href="contact.html" class="transition-link">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+    <video autoplay muted loop id="bg-video">
+        <source src="video.mp4" type="video/mp4" />
+    </video>
 
-<section class="transparent-section">
-    <h2 class="section-title">Contact</h2>
-    <p class="home-text">Email: yourmail@example.com</p>
-</section>
+    <div class="overlay"></div>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">Uditansh Gupta</div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="transition-link">Home</a></li>
+                <li><a href="education.html" class="transition-link">Education</a></li>
+                <li><a href="interests.html" class="transition-link">Interests</a></li>
+                <li><a href="skills.html" class="transition-link">Skills</a></li>
+                <li><a href="projects.html" class="transition-link">Projects</a></li>
+                <li><a href="contact.html" class="transition-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="transparent-section">
+        <h2 class="section-title">Contact</h2>
+
+        <div class="about-container">
+
+            <div class="about-card">
+                <h3>Email</h3>
+                <p>uditansh.gupta@example.com</p>
+            </div>
+
+            <div class="about-card">
+                <h3>LinkedIn</h3>
+                <p>linkedin.com/in/uditansh</p>
+            </div>
+
+            <div class="about-card">
+                <h3>GitHub</h3>
+                <p>github.com/udit-ansh</p>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="transition.js"></script>
 
 </body>
 </html>
